@@ -1,4 +1,5 @@
 import SwiftUI
+import Foundation // Import Foundation to access loadDishes
 
 // MARK: - Dish Card View
 
@@ -95,7 +96,11 @@ struct DishDetailView: View {
                 .padding(.bottom)
             Text(dish.description)
                 .font(.body)
-                .padding()
+                .padding(.bottom)
+            Text("Price: \(dish.price)") // Show the price
+                .font(.subheadline)
+                .foregroundColor(.green)
+                .padding(.bottom)
             Spacer()
         }
         .navigationTitle("Dish Details")
@@ -105,7 +110,7 @@ struct DishDetailView: View {
 // MARK: - Main Content View
 
 struct MainContentView: View {
-    @State private var dishes: [Dish] = sampleDishes // Use the array from DishData.swift
+    @State private var dishes: [Dish] = loadDishes() // Load dishes using the function from DishData
     @State private var currentDish: Dish?
     @State private var showDetailView: Bool = false
     @State private var selectedDish: Dish?
@@ -140,6 +145,9 @@ struct MainContentView: View {
                     }
                 } else {
                     VStack {
+                        Text("No more dishes!")
+                            .font(.title2)
+                            .foregroundColor(.gray)
                         if let mostLiked = mostLikedRestaurant {
                             Text("The restaurant with the most liked dishes is:")
                                 .font(.headline)

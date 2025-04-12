@@ -1,0 +1,45 @@
+[
+    {
+        "name": "Chicken Croffle",
+        "imageName": "SweetMaple_ChickenCroffle",
+        "description": "Crispy chicken with signature croissant waffle, fruits, candied walnut and spicy honey maple syrup",
+        "restaurantName": "Sweet Maple",
+        "price": "$25"
+    },
+    {
+        "name": "Kids Pancake",
+        "imageName": "SweetMaple_KidsPancake",
+        "description": "With a slice of bacon or pork-lime or a chicken-mango sausage, one egg scrambled",
+        "restaurantName": "Sweet Maple",
+        "price": "$15"
+    },
+    {
+        "name": "Loco Moco",
+        "imageName": "SweetMaple_LocoMoco",
+        "description": "Wagyu beef cutlet, bell pepper, mushroom, onion, egg, rice, gravy",
+        "restaurantName": "Sweet Maple",
+        "price": "$26"
+    },
+    {
+        "name": "Matcha Moffle",
+        "imageName": "SweetMaple_MatchaMoffle",
+        "description": "Matcha mochi waffle, signature matcha lava",
+        "restaurantName": "Sweet Maple",
+        "price": "$17"
+    },
+    {
+        "name": "Tornado Galbi Omurice",
+        "imageName": "SweetMaple_TornadoGalbiOmurice",
+        "description": "Twisted scrambled egg over galbi & vegetable fried rice, demi-glace",
+        "restaurantName": "Sweet Maple",
+        "price": "$26"
+    },
+    {
+        "name": "Breaky Tacos With Brussel Potato Medley",
+        "imageName": "SweetMaple_BreakyTacos",
+        "description": "Galbi, scrambled egg, scallion, avocado, pico de gallo, roasted salsa, pickle red onion and cheddar",
+        "restaurantName": "Sweet Maple",
+        "price": "$24"
+        
+    }
+]
