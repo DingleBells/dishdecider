@@ -8,13 +8,10 @@
 import SwiftUI
 
 @main
-struct dishdeciderappApp: App {
-    let persistenceController = PersistenceController.shared
-
+struct DishDeciderApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            StartScreen()
         }
     }
-}
+}  
