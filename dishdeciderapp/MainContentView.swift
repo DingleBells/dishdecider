@@ -1,5 +1,5 @@
 import SwiftUI
-import Foundation // Import Foundation to access loadDishes
+import Foundation
 
 // MARK: - Dish Card View
 
@@ -14,13 +14,28 @@ struct DishCardView: View {
         GeometryReader { geometry in
             if let dish = dish {
                 VStack {
-                    Image(dish.imageName)
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: geometry.size.width * 0.9, height: geometry.size.height * 0.7)
-                        .clipped()
-                        .cornerRadius(10)
-                        .shadow(radius: 5)
+                    AsyncImage(url: URL(string: dish.imageURL)) { phase in
+                        switch phase {
+                        case .empty:
+                            ProgressView() // Show a loading indicator
+                        case .success(let image):
+                            image
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: geometry.size.width * 0.9, height: geometry.size.height * 0.7)
+                                .clipped()
+                                .cornerRadius(10)
+                                .shadow(radius: 5)
+                        case .failure:
+                            Image(systemName: "photo.fill") // Show a placeholder image on error
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 100, height: 100)
+                                .foregroundColor(.gray)
+                        @unknown default:
+                            EmptyView()
+                        }
+                    }
                     Text(dish.name)
                         .font(.title2)
                         .fontWeight(.semibold)
@@ -82,10 +97,25 @@ struct DishDetailView: View {
 
     var body: some View {
         VStack {
-            Image(dish.imageName)
-                .resizable()
-                .scaledToFit()
-                .padding()
+            AsyncImage(url: URL(string: dish.imageURL)) { phase in
+                switch phase {
+                case .empty:
+                    ProgressView()
+                case .success(let image):
+                    image
+                        .resizable()
+                        .scaledToFit()
+                        .padding()
+                case .failure:
+                    Image(systemName: "photo.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 200, height: 200)
+                        .foregroundColor(.gray)
+                @unknown default:
+                    EmptyView()
+                }
+            }
             Text(dish.name)
                 .font(.title)
                 .fontWeight(.bold)
@@ -187,13 +217,12 @@ struct MainContentView: View {
                     .padding(.horizontal)
                 }
             }
-            .navigationTitle("Restaurant Tinder")
             .navigationDestination(isPresented: $showDetailView) {
                 if let dish = selectedDish {
                     DishDetailView(dish: dish)
                 }
             }
-            .onChange(of: currentDish) { _ in
+            .onChange(of: currentDish) {
                 if currentDish == nil {
                     // Determine the most liked restaurant
                     mostLikedRestaurant = likedRestaurants.max { a, b in a.value < b.value }?.key

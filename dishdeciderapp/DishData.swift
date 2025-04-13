@@ -10,33 +10,29 @@ import Foundation
 struct Dish: Identifiable, Codable, Equatable {
     let id: UUID
     let name: String
-    let imageName: String   // Name of the image file in your assets
+    let imageURL: String // Changed imageName to imageURL and type to String
     let description: String
     let restaurantName: String
     let price: String
-    // Add other relevant details like price, ingredients, etc.
-    
-    // We don't expect an ID to be stored in the JSON. We generate one when decoding.
+
     enum CodingKeys: String, CodingKey {
-        case name, imageName, description, restaurantName, price
+        case name, imageURL, description, restaurantName, price
     }
-    
-    // Initializer for creating new Dish instances in code
-    init(name: String, imageName: String, description: String, restaurantName: String, price: String) {
+
+    init(name: String, imageURL: String, description: String, restaurantName: String, price: String) {
         self.id = UUID()
         self.name = name
-        self.imageName = imageName
+        self.imageURL = imageURL
         self.description = description
         self.restaurantName = restaurantName
         self.price = price
     }
-    
-    // Custom initializer for decoding from JSON — we generate a new UUID here.
+
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.id = UUID()
         self.name = try container.decode(String.self, forKey: .name)
-        self.imageName = try container.decode(String.self, forKey: .imageName)
+        self.imageURL = try container.decode(String.self, forKey: .imageURL)
         self.description = try container.decode(String.self, forKey: .description)
         self.restaurantName = try container.decode(String.self, forKey: .restaurantName)
         self.price = try container.decode(String.self, forKey: .price)
@@ -49,12 +45,11 @@ func loadDishes() -> [Dish] {
         print("Could not find dishes.json in the bundle")
         return []
     }
-    
+
     do {
         let data = try Data(contentsOf: url)
         let decoder = JSONDecoder()
-        let dishes = try decoder.decode([Dish].self, from: data)
-        return dishes
+        return try decoder.decode([Dish].self, from: data)
     } catch {
         print("Error decoding dishes JSON: \(error)")
         return []
