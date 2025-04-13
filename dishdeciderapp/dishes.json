@@ -1,0 +1,45 @@
+[
+    {
+        "name": "Chicken Croffle",
+        "imageURL": "https://s3-media0.fl.yelpcdn.com/bphoto/ghFIchUUbVFnLaaCXzBDMA/o.jpg",
+        "description": "Crispy chicken with signature croissant waffle, fruits, candied walnut and spicy honey maple syrup",
+        "restaurantName": "Sweet Maple",
+        "price": "$25"
+    },
+    {
+        "name": "Kids Pancake",
+        "imageURL": "https://popmenucloud.com/cdn-cgi/image/width=1920,height=1920,format=auto,fit=scale-down/vibodwzr/bdff5fbf-4a2e-44c3-9b17-be35afe26c45.jpg",
+        "description": "With a slice of bacon or pork-lime or a chicken-mango sausage, one egg scrambled",
+        "restaurantName": "Sweet Maple",
+        "price": "$15"
+    },
+    {
+        "name": "Loco Moco",
+        "imageURL": "https://s3-media0.fl.yelpcdn.com/bphoto/dwUcJystiBUDmdCgKEFznA/o.jpg",
+        "description": "Wagyu beef cutlet, bell pepper, mushroom, onion, egg, rice, gravy",
+        "restaurantName": "Sweet Maple",
+        "price": "$26"
+    },
+    {
+        "name": "Matcha Moffle",
+        "imageURL": "https://s3-media0.fl.yelpcdn.com/bphoto/Y6PvyoKQBFyDmq7dIFA3pg/o.jpg",
+        "description": "Matcha mochi waffle, signature matcha lava",
+        "restaurantName": "Sweet Maple",
+        "price": "$17"
+    },
+    {
+        "name": "Tornado Galbi Omurice",
+        "imageURL": "https://s3-media0.fl.yelpcdn.com/bphoto/VKLsgcMHrCMrIsIKvmnh9Q/o.jpg",
+        "description": "Twisted scrambled egg over galbi & vegetable fried rice, demi-glace",
+        "restaurantName": "Sweet Maple",
+        "price": "$26"
+    },
+    {
+        "name": "Breaky Tacos With Brussel Potato Medley",
+        "imageURL": "https://popmenucloud.com/cdn-cgi/image/width=1920,height=1920,format=auto,fit=scale-down/vibodwzr/e2298c7b-9f97-4ebf-a161-99d7cc83c22e.jpg",
+        "description": "Galbi, scrambled egg, scallion, avocado, pico de gallo, roasted salsa, pickle red onion and cheddar",
+        "restaurantName": "Sweet Maple",
+        "price": "$24"
+        
+    }
+]
